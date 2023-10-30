@@ -1,10 +1,17 @@
+// ignore_for_file: constant_identifier_names
+
 import 'package:flutter/material.dart';
 
-class PersonalDataCardModel {
-  
-  final Icon? icon;
-  String title = '';
-  String value = '';
+enum EntryFieldType {
+  SELECT, TEXT,
+}
 
-  PersonalDataCardModel({this.icon, required this.title, required this.value});
+class PersonalDataCardModel {
+
+  final Icon? icon;
+  final EntryFieldType type;
+  String title = '';
+  dynamic value = '';
+
+  PersonalDataCardModel({this.icon, required this.type, required this.title, required this.value});
 }
