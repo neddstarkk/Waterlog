@@ -2,12 +2,14 @@
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../models/personal_data_card_model.dart';
+import '../../services/user_provider.dart';
 import 'radio_option.dart';
 import 'text_option.dart';
 
-enum Genders { MALE, FEMALE }
+
 
 class PersonalDetailsEntry extends StatefulWidget {
   const PersonalDetailsEntry({super.key});
@@ -27,12 +29,21 @@ class _PersonalDetailsEntryState extends State<PersonalDetailsEntry> {
     setState(() {
       this.gender = gender;
     });
+    Provider.of<UserProvider>(context, listen: false).updateGender(gender!);
   }
 
-  void onWeightChanged(String age) {
+  void onWeightChanged(String weight) {
     setState(() {
-      this.weight = age;
+      this.weight = weight;
     });
+    Provider.of<UserProvider>(context, listen: false).updateWeight(weight);
+  }
+
+  void onHeightChanged(String height) {
+    setState(() {
+      this.height = height;
+    });
+    Provider.of<UserProvider>(context, listen: false).updateHeight(height);
   }
 
   @override
@@ -83,6 +94,8 @@ class _PersonalDetailsEntryState extends State<PersonalDetailsEntry> {
                 setState(() {
                   time = selectedTime!.format(context);
                 });
+
+                Provider.of<UserProvider>(context,listen: false).updateWakeUpTime(time);
               } else {
                 showDialog(
                     context: context,
@@ -96,9 +109,9 @@ class _PersonalDetailsEntryState extends State<PersonalDetailsEntry> {
                       }
                       return TextOption(
                         title: items[index].title,
-                        operation: onWeightChanged,
-                        prevVal: weight,
-                        unit: "kg",
+                        operation: index == 1 ? onWeightChanged : onHeightChanged,
+                        prevVal: index == 1 ? weight : height,
+                        unit: index == 1 ? "kg" : "cm",
                       );
                     });
               }
