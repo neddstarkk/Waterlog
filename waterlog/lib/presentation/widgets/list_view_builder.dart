@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../models/personal_data_card_model.dart';
 import 'radio_option.dart';
+import 'text_option.dart';
 
 enum Genders { MALE, FEMALE }
 
@@ -17,7 +18,7 @@ class PersonalDetailsEntry extends StatefulWidget {
 class _PersonalDetailsEntryState extends State<PersonalDetailsEntry> {
   List<PersonalDataCardModel> items = [];
   Genders? gender = Genders.MALE;
-  String age = '';
+  String weight = '';
 
   void onGenderChanged(Genders? gender) {
     setState(() {
@@ -25,9 +26,9 @@ class _PersonalDetailsEntryState extends State<PersonalDetailsEntry> {
     });
   }
 
-  void onAgeChanged(String age) {
+  void onWeightChanged(String age) {
     setState(() {
-      this.age = age;
+      this.weight = age;
     });
   }
 
@@ -43,7 +44,7 @@ class _PersonalDetailsEntryState extends State<PersonalDetailsEntry> {
           icon: const Icon(Icons.person),
           type: EntryFieldType.TEXT,
           title: "age",
-          value: age),
+          value: weight),
     ];
     return ListView.builder(
       itemCount: 2,
@@ -65,8 +66,8 @@ class _PersonalDetailsEntryState extends State<PersonalDetailsEntry> {
                     }
                     return TextOption(
                       title: items[index].title,
-                      operation: onAgeChanged,
-                      prevVal: age,
+                      operation: onWeightChanged,
+                      prevVal: weight,
                     );
                   });
             });
@@ -76,46 +77,3 @@ class _PersonalDetailsEntryState extends State<PersonalDetailsEntry> {
   }
 }
 
-class TextOption extends StatefulWidget {
-  final String title;
-  final Function(String val) operation;
-  String prevVal;
-
-  TextOption(
-      {super.key,
-      required this.title,
-      required this.operation,
-      required this.prevVal});
-
-  @override
-  State<TextOption> createState() => _TextOptionState();
-}
-
-class _TextOptionState extends State<TextOption> {
-  final TextEditingController _controller = TextEditingController();
-
-  @override
-  Widget build(BuildContext context) {
-    return AlertDialog(
-      title: Text(widget.title),
-      content: TextField(
-        controller: _controller,
-        decoration: const InputDecoration(
-          border: UnderlineInputBorder(),
-          labelText: "Enter the value"
-        ),
-      ),
-      actions: [
-        TextButton(
-            onPressed: () {
-              setState(() {
-                widget.prevVal = _controller.text;
-              });
-              widget.operation(_controller.text);
-              Navigator.pop(context);
-            },
-            child: const Text("Confirm"))
-      ],
-    );
-  }
-}
