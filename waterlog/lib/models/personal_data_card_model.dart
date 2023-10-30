@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 
 enum EntryFieldType {
-  SELECT, TEXT,
+  SELECT, TEXT, TIMEPICKER,
 }
 
 class PersonalDataCardModel {

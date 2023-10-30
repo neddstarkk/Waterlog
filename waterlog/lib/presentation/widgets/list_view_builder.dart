@@ -18,7 +18,9 @@ class PersonalDetailsEntry extends StatefulWidget {
 class _PersonalDetailsEntryState extends State<PersonalDetailsEntry> {
   List<PersonalDataCardModel> items = [];
   Genders? gender = Genders.MALE;
-  String weight = '';
+  String weight = 'kg';
+  String height = 'cm';
+  String time = 'AM';
 
   void onGenderChanged(Genders? gender) {
     setState(() {
@@ -36,18 +38,32 @@ class _PersonalDetailsEntryState extends State<PersonalDetailsEntry> {
   Widget build(BuildContext context) {
     items = [
       PersonalDataCardModel(
-          icon: const Icon(Icons.transgender),
-          type: EntryFieldType.SELECT,
-          title: "gender",
-          value: gender == Genders.MALE ? "Male" : "Female"),
+        type: EntryFieldType.SELECT,
+        title: "Gender",
+        value: gender == Genders.MALE ? "Male" : "Female",
+        icon: const Icon(Icons.transgender),
+      ),
       PersonalDataCardModel(
-          icon: const Icon(Icons.person),
-          type: EntryFieldType.TEXT,
-          title: "age",
-          value: weight),
+        type: EntryFieldType.TEXT,
+        title: "Weight",
+        value: weight,
+        icon: const Icon(Icons.person),
+      ),
+      PersonalDataCardModel(
+        type: EntryFieldType.TEXT,
+        title: "Height",
+        value: height,
+        icon: const Icon(Icons.height),
+      ),
+      PersonalDataCardModel(
+        type: EntryFieldType.TIMEPICKER,
+        title: "Wake-up Time",
+        value: time,
+        icon: const Icon(Icons.alarm),
+      ),
     ];
     return ListView.builder(
-      itemCount: 2,
+      itemCount: items.length,
       itemBuilder: (context, index) {
         return ListTile(
             trailing: Text(items[index].value.toString()),
@@ -64,10 +80,14 @@ class _PersonalDetailsEntryState extends State<PersonalDetailsEntry> {
                         gender: gender,
                       );
                     }
+                    else if (items[index].type == EntryFieldType.TIMEPICKER) {
+
+                    }
                     return TextOption(
                       title: items[index].title,
                       operation: onWeightChanged,
                       prevVal: weight,
+                      unit: "kg",
                     );
                   });
             });
@@ -76,4 +96,3 @@ class _PersonalDetailsEntryState extends State<PersonalDetailsEntry> {
     );
   }
 }
-

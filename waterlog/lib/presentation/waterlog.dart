@@ -14,16 +14,16 @@ class Waterlog extends StatelessWidget {
       routes: {
         '/radio-option': (context) => RadioOption(onGenderChanged: (val) {}, title: '',),
       },
-      home: const Scaffold(
+      home: Scaffold(
         body: SafeArea(
           child: Padding(
             padding: EdgeInsets.all(8.0),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 // Spacer(),
-                Card(
+                const Card(
                   color: Color(0xff9498EF),
                   elevation: 0,
                   child: Padding(
@@ -33,10 +33,11 @@ class Waterlog extends StatelessWidget {
                         style: TextStyle(color: Colors.white, fontSize: 20)),
                   ),
                 ),
-                SizedBox(
-                  height: 100,
-                ),
-                PersonalDetailsEntry()
+                const PersonalDetailsEntry(),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                  child: FloatingActionButton.extended(onPressed: () {}, label: const Text("NEXT")),
+                )
                 // Spacer(),
               ],
             ),
