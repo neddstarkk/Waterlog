@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 
 import '../../models/personal_data_card_model.dart';
+import 'radio_option.dart';
 
 enum Genders { MALE, FEMALE }
 
@@ -16,14 +17,17 @@ class PersonalDetailsEntry extends StatefulWidget {
 class _PersonalDetailsEntryState extends State<PersonalDetailsEntry> {
   List<PersonalDataCardModel> items = [];
   Genders? gender = Genders.MALE;
-
-  Widget TextOption() {
-    return Text("Text Field");
-  }
+  String age = '';
 
   void onGenderChanged(Genders? gender) {
     setState(() {
       this.gender = gender;
+    });
+  }
+
+  void onAgeChanged(String age) {
+    setState(() {
+      this.age = age;
     });
   }
 
@@ -39,7 +43,7 @@ class _PersonalDetailsEntryState extends State<PersonalDetailsEntry> {
           icon: const Icon(Icons.person),
           type: EntryFieldType.TEXT,
           title: "age",
-          value: "25"),
+          value: age),
     ];
     return ListView.builder(
       itemCount: 2,
@@ -49,7 +53,22 @@ class _PersonalDetailsEntryState extends State<PersonalDetailsEntry> {
             title: Text(items[index].title.toString()),
             leading: items[index].icon,
             onTap: () {
-              showDialog(context: context, builder: (context) => RadioOption(title: items[index].title, onGenderChanged: onGenderChanged, gender: gender,));
+              showDialog(
+                  context: context,
+                  builder: (context) {
+                    if (items[index].type == EntryFieldType.SELECT) {
+                      return RadioOption(
+                        title: items[index].title,
+                        onGenderChanged: onGenderChanged,
+                        gender: gender,
+                      );
+                    }
+                    return TextOption(
+                      title: items[index].title,
+                      operation: onAgeChanged,
+                      prevVal: age,
+                    );
+                  });
             });
       },
       shrinkWrap: true,
@@ -57,57 +76,46 @@ class _PersonalDetailsEntryState extends State<PersonalDetailsEntry> {
   }
 }
 
-class RadioOption extends StatefulWidget {
+class TextOption extends StatefulWidget {
   final String title;
-  final Function(Genders? gender) onGenderChanged;
-  Genders? gender;
+  final Function(String val) operation;
+  String prevVal;
 
-  RadioOption({super.key, required this.title, required this.onGenderChanged, this.gender});
+  TextOption(
+      {super.key,
+      required this.title,
+      required this.operation,
+      required this.prevVal});
 
   @override
-  State<RadioOption> createState() => _RadioOptionState();
+  State<TextOption> createState() => _TextOptionState();
 }
 
-class _RadioOptionState extends State<RadioOption> {
-  Genders? gender;
-
-  @override
-  void initState() {
-    super.initState();
-    gender = widget.gender;
-  }
+class _TextOptionState extends State<TextOption> {
+  final TextEditingController _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
       title: Text(widget.title),
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          RadioListTile(
-            value: Genders.MALE,
-            title: const Text("Male"),
-            groupValue: gender,
-            onChanged: (Genders? value) {
-              setState(() {
-                gender = value;
-              });
-              widget.onGenderChanged(value);
-            },
-          ),
-          RadioListTile(
-            value: Genders.FEMALE,
-            title: const Text("Female"),
-            groupValue: gender,
-            onChanged: (Genders? value) {
-              setState(() {
-                gender = value;
-              });
-              widget.onGenderChanged(value);
-            },
-          ),
-        ],
+      content: TextField(
+        controller: _controller,
+        decoration: const InputDecoration(
+          border: UnderlineInputBorder(),
+          labelText: "Enter the value"
+        ),
       ),
+      actions: [
+        TextButton(
+            onPressed: () {
+              setState(() {
+                widget.prevVal = _controller.text;
+              });
+              widget.operation(_controller.text);
+              Navigator.pop(context);
+            },
+            child: const Text("Confirm"))
+      ],
     );
   }
 }
