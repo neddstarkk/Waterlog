@@ -1,5 +1,6 @@
 // ignore_for_file: must_be_immutable
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../models/personal_data_card_model.dart';
@@ -69,27 +70,38 @@ class _PersonalDetailsEntryState extends State<PersonalDetailsEntry> {
             trailing: Text(items[index].value.toString()),
             title: Text(items[index].title.toString()),
             leading: items[index].icon,
-            onTap: () {
-              showDialog(
-                  context: context,
-                  builder: (context) {
-                    if (items[index].type == EntryFieldType.SELECT) {
-                      return RadioOption(
-                        title: items[index].title,
-                        onGenderChanged: onGenderChanged,
-                        gender: gender,
-                      );
-                    }
-                    else if (items[index].type == EntryFieldType.TIMEPICKER) {
+            onTap: () async {
+              if (items[index].type == EntryFieldType.TIMEPICKER) {
+                final selectedTime = await showTimePicker(
+                    context: context, initialTime: TimeOfDay.now());
+                if (!context.mounted) return;
 
-                    }
-                    return TextOption(
-                      title: items[index].title,
-                      operation: onWeightChanged,
-                      prevVal: weight,
-                      unit: "kg",
-                    );
-                  });
+                if (kDebugMode) {
+                  print(selectedTime?.format(context));
+                }
+
+                setState(() {
+                  time = selectedTime!.format(context);
+                });
+              } else {
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      if (items[index].type == EntryFieldType.SELECT) {
+                        return RadioOption(
+                          title: items[index].title,
+                          onGenderChanged: onGenderChanged,
+                          gender: gender,
+                        );
+                      }
+                      return TextOption(
+                        title: items[index].title,
+                        operation: onWeightChanged,
+                        prevVal: weight,
+                        unit: "kg",
+                      );
+                    });
+              }
             });
       },
       shrinkWrap: true,
