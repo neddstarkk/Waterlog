@@ -12,7 +12,7 @@ class Waterlog extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: ChangeNotifierProvider<UserProvider>(
         create: (_) => UserProvider(),
-        child: Scaffold(
+        child: const Scaffold(
           body: SafeArea(
             child: Padding(
               padding: EdgeInsets.all(8.0),
@@ -21,21 +21,18 @@ class Waterlog extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   // Spacer(),
-                  const Card(
+                  Card(
                     color: Color(0xff9498EF),
                     elevation: 0,
                     child: Padding(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 12.0, horizontal: 10.0),
+                      padding: EdgeInsets.symmetric(
+                          vertical: 12.0, horizontal: 10.0),
                       child: Text("Personal Data",
                           style: TextStyle(color: Colors.white, fontSize: 20)),
                     ),
                   ),
-                  const PersonalDetailsEntry(),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 50.0),
-                    child: FloatingActionButton.extended(onPressed: () {}, label: const Text("NEXT")),
-                  )
+                  PersonalDetailsEntry(),
+                  NextButton(),
                   // Spacer(),
                 ],
               ),
@@ -43,6 +40,35 @@ class Waterlog extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class NextButton extends StatelessWidget {
+  const NextButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 50.0),
+      child: FloatingActionButton.extended(
+          onPressed: () {
+            var provider = Provider.of<UserProvider>(context, listen: false);
+            if (provider.fetchWeight.length < 4) {
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                  behavior: SnackBarBehavior.floating,
+                  content: Text("Error: Weight needs to be a valid value")));
+            } else if (provider.fetchHeight.length < 5) {
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                  behavior: SnackBarBehavior.floating,
+                  content: Text("Error: Height cannot be empty")));
+            } else if (provider.fetchTime.length < 3) {
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                  behavior: SnackBarBehavior.floating,
+                  content: Text("Error: Please provide a valid wake-up time")));
+            } else {}
+          },
+          label: const Text("NEXT")),
     );
   }
 }
