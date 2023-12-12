@@ -1,8 +1,11 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:waterlog/presentation/calculation_screen.dart';
 import 'package:waterlog/presentation/widgets/list_view_builder.dart';
+import 'package:waterlog/services/intake_calculator.dart';
 import 'package:waterlog/services/user_provider.dart';
 
 class Waterlog extends StatelessWidget {
@@ -54,9 +57,13 @@ class NextButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 50.0),
       child: FloatingActionButton.extended(
-          onPressed: () {
+          onPressed: () async{
             // commented for easier development
-            // var provider = Provider.of<UserProvider>(context, listen: false);
+            var provider = Provider.of<UserProvider>(context, listen: false);
+            int height = int.parse(provider.fetchHeight.toString().substring(0,3));
+            int weight = int.parse(provider.fetchWeight.toString().substring(0, 3));
+            var wakeUpTime = provider.fetchTime.toString();
+            Genders? gender = provider.fetchGender;
             // if (provider.fetchWeight.length < 4) {
             //   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
             //       behavior: SnackBarBehavior.floating,
@@ -72,7 +79,17 @@ class NextButton extends StatelessWidget {
             // } else {
             //   Navigator.push(context, CupertinoPageRoute(builder: (context) => const CalculationScreen()));
             // }
-            Navigator.push(context, CupertinoPageRoute(builder: (context) => const CalculationScreen()));
+            provider.updateRequiredWaterIntake(IntakeCalculator.hello(height, weight, wakeUpTime, gender).toString());
+            print(provider.waterIntake);
+            Timer(
+              const Duration(seconds: 2),
+              () async {
+                Navigator.push(
+                    context,
+                    CupertinoPageRoute(
+                        builder: (context) => const CalculationScreen()));
+              },
+            );
           },
           label: const Text("NEXT")),
     );

@@ -1,3 +1,4 @@
+
 // ignore_for_file: constant_identifier_names
 
 import 'package:flutter/foundation.dart';
@@ -10,6 +11,7 @@ class UserProvider with ChangeNotifier {
   String weight;
   String height;
   String wakeUpTime;
+  String? requiredWaterIntake;
 
   UserProvider({
     this.gender = Genders.MALE,
@@ -49,6 +51,15 @@ class UserProvider with ChangeNotifier {
     }
     notifyListeners();
   }
+  void updateRequiredWaterIntake(String? intake) {
+    requiredWaterIntake = intake;
+    if(kDebugMode) {
+      print("Updated Water Intake");
+    }
+    notifyListeners();
+  }
+
+  String? get waterIntake => requiredWaterIntake;
 
   Genders? get fetchGender => gender;
 
