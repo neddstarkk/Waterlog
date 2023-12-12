@@ -1,13 +1,8 @@
-import 'dart:async';
-
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-
-import '../services/user_provider.dart';
 
 class ShowCalculatedIntake extends StatefulWidget {
   const ShowCalculatedIntake({required this.waterIntake, super.key});
+
   final String? waterIntake;
 
   @override
@@ -20,9 +15,16 @@ class _ShowCalculatedIntakeState extends State<ShowCalculatedIntake> {
     return Scaffold(
       body: SafeArea(
         child: Center(
-          child: Text("${widget.waterIntake}"),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Text("${widget.waterIntake}"),
+              FloatingActionButton.extended(onPressed: () {}, label: Text("START"),)
+            ],
           ),
         ),
+      ),
     );
   }
 }
