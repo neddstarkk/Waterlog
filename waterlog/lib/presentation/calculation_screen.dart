@@ -2,9 +2,6 @@ import 'dart:async';
 
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:waterlog/services/intake_calculator.dart';
-import 'package:waterlog/services/user_provider.dart';
 
 class CalculationScreen extends StatefulWidget {
   const CalculationScreen({super.key});
@@ -19,7 +16,7 @@ class _CalculationScreenState extends State<CalculationScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 2), () {
+    Timer(const Duration(seconds: 2), () {
       setState(() {
         isCalculating = false;
       });
@@ -30,7 +27,7 @@ class _CalculationScreenState extends State<CalculationScreen> {
   Widget build(BuildContext context) {
 
     if (isCalculating == true) {
-      return Scaffold(body: Center(child: CircularProgressIndicator()));
+      return const Scaffold(body: Center(child: CircularProgressIndicator()));
     } else {
       return Scaffold(
         body: SafeArea(
