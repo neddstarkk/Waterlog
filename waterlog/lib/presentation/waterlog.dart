@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:waterlog/presentation/calculation_screen.dart';
+import 'package:waterlog/presentation/show_calculated_intake.dart';
 import 'package:waterlog/presentation/widgets/list_view_builder.dart';
 import 'package:waterlog/services/intake_calculator.dart';
 import 'package:waterlog/services/user_provider.dart';
@@ -82,12 +82,12 @@ class NextButton extends StatelessWidget {
             provider.updateRequiredWaterIntake(IntakeCalculator.hello(height, weight, wakeUpTime, gender).toString());
             print(provider.waterIntake);
             Timer(
-              const Duration(seconds: 2),
+              const Duration(milliseconds: 500),
               () async {
                 Navigator.push(
                     context,
                     CupertinoPageRoute(
-                        builder: (context) => const CalculationScreen()));
+                        builder: (context) => ShowCalculatedIntake(waterIntake: provider.waterIntake,)));
               },
             );
           },
