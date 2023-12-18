@@ -17,6 +17,7 @@ class _WaterIntakeTrackerState extends State<WaterIntakeTracker> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         SfRadialGauge(
@@ -25,13 +26,13 @@ class _WaterIntakeTrackerState extends State<WaterIntakeTracker> {
               showLabels: false,
               showTicks: false,
               minimum: 0,
-              maximum: double.parse(Provider.of<UserProvider>(context).waterIntake.toString()),
+              maximum: double.parse(
+                  Provider.of<UserProvider>(context).waterIntake.toString()),
               axisLineStyle: const AxisLineStyle(
-                thickness: 0.2,
-                cornerStyle: CornerStyle.bothCurve,
-                color: Color.fromARGB(30, 0, 169, 181),
-                thicknessUnit: GaugeSizeUnit.factor
-              ),
+                  thickness: 0.2,
+                  cornerStyle: CornerStyle.bothCurve,
+                  color: Color.fromARGB(30, 0, 169, 181),
+                  thicknessUnit: GaugeSizeUnit.factor),
               pointers: [
                 RangePointer(
                   value: waterIntake,
@@ -42,16 +43,21 @@ class _WaterIntakeTrackerState extends State<WaterIntakeTracker> {
                 )
               ],
               annotations: [
-                GaugeAnnotation(widget: Text("${waterIntake} ml"))
+                GaugeAnnotation(
+                  widget: Text("$waterIntake ml", style: TextStyle(fontSize: 31, fontWeight: FontWeight.bold) ,)
+                )
               ],
             ),
           ],
         ),
-        FloatingActionButton.extended(onPressed: () {
-          setState(() {
-            waterIntake += 300;
-          });
-        }, label: Text("Add 300 ml"),)
+        FloatingActionButton.extended(
+          onPressed: () {
+            setState(() {
+              waterIntake += 300;
+            });
+          },
+          label: Text("Add 300 ml"),
+        )
       ],
     ));
   }
