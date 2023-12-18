@@ -13,11 +13,11 @@ class Waterlog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: ChangeNotifierProvider<UserProvider>(
-        create: (_) => UserProvider(),
-        child: const Scaffold(
+    return ChangeNotifierProvider<UserProvider>(
+      create: (_) => UserProvider(),
+      child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
           body: SafeArea(
             child: Padding(
               padding: EdgeInsets.all(8.0),
