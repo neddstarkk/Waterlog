@@ -35,11 +35,14 @@ class _WaterIntakeTrackerState extends State<WaterIntakeTracker> {
               pointers: [
                 RangePointer(
                   value: waterIntake,
-                  cornerStyle: CornerStyle.bothCurve,
+                  cornerStyle: CornerStyle.startCurve,
                   width: 0.2,
                   sizeUnit: GaugeSizeUnit.factor,
                   color: Colors.blue,
                 )
+              ],
+              annotations: [
+                GaugeAnnotation(widget: Text("${waterIntake} ml"))
               ],
             ),
           ],
