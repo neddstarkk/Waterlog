@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:waterlog/presentation/water_intake_tracker.dart';
 
 class ShowCalculatedIntake extends StatefulWidget {
   const ShowCalculatedIntake({required this.waterIntake, super.key});
@@ -20,7 +22,17 @@ class _ShowCalculatedIntakeState extends State<ShowCalculatedIntake> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Text("${widget.waterIntake}"),
-              FloatingActionButton.extended(onPressed: () {}, label: Text("START"),)
+              FloatingActionButton.extended(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    CupertinoPageRoute(
+                      builder: (context) => const WaterIntakeTracker(),
+                    ),
+                  );
+                },
+                label: const Text("START"),
+              )
             ],
           ),
         ),
