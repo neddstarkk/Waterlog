@@ -36,14 +36,8 @@ jobs:
           channel: 'stable'
           cache: true
       # 12
-      - name: Change directory
-        run: cd waterlog
-
-      - name: Print working directory
-        run: pwd
-        
       - name: Get dependencies
-        run: flutter pub get
+        run: flutter pub get $(pwd)/waterlog/pubspec.yaml
 
       # Runs a set of commands using the runners shell
       - name: Start release build
