@@ -38,6 +38,9 @@ jobs:
       # 12
       - name: Change directory
         run: cd waterlog
+
+      - name: Print working directory
+        run: pwd
         
       - name: Get dependencies
         run: flutter pub get
