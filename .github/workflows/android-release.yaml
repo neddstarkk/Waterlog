@@ -37,7 +37,7 @@ jobs:
           cache: true
       # 12
       - name: Get dependencies
-        run: flutter pub get $(pwd)/waterlog/pubspec.yaml
+        run: flutter pub get $(pwd)/waterlog
 
       # Runs a set of commands using the runners shell
       - name: Start release build
