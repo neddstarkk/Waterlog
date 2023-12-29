@@ -40,5 +40,5 @@ jobs:
         run: flutter pub get $(pwd)/waterlog
 
       # Runs a set of commands using the runners shell
-      - name: Start release build
-        run: cd $(pwd)/waterlog | flutter build appbundle
+      - name: Check working directory
+        run: cd $(pwd)/waterlog | ls
