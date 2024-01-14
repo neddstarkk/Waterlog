@@ -14,6 +14,7 @@ You can find the requirements mapped in a notion page [here](https://slow-rambut
 
 ## 4. Analysis
 A) You can find my [checklist here](https://slow-rambutan-c40.notion.site/Part-A-My-own-checklist-39af2a74b6914f12b7318daea4843a9e?pvs=4)
+
 B) And you can find the start-up idea analysis [here](https://slow-rambutan-c40.notion.site/Part-B-Start-up-Analysis-c3b1e8d3b98c4273885e5223a676493e?pvs=4)
 
 ## 5. Domain Driven Design
