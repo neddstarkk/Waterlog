@@ -24,6 +24,6 @@ The relations between the domains can be found [here](https://github.com/neddsta
 
 ## 6. Metrics
 
-![Test workflow](https://github.com/github/docs/actions/workflows/android-release.yml/badge.svg)
+![Test workflow](https://github.com/github/workflows/android-release.yml/badge.svg)
 
 
