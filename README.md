@@ -24,6 +24,17 @@ The relations between the domains can be found [here](https://github.com/neddsta
 
 ## 6. Metrics
 
-![Test workflow](https://img.shields.io/github/actions/workflow/status/neddstarkk/Waterlog/.github%2Fworkflows%2Fandroid-release.yaml)
+Creation of SonarCloud account and connecting to repository for metric badges:
+
+![Build test](https://img.shields.io/github/actions/workflow/status/neddstarkk/Waterlog/.github%2Fworkflows%2Fandroid-release.yaml)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=neddstarkk_Waterlog&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=neddstarkk_Waterlog)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=neddstarkk_Waterlog&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=neddstarkk_Waterlog)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=neddstarkk_Waterlog&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=neddstarkk_Waterlog)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=neddstarkk_Waterlog&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=neddstarkk_Waterlog)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=neddstarkk_Waterlog&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=neddstarkk_Waterlog)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=neddstarkk_Waterlog&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=neddstarkk_Waterlog)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=neddstarkk_Waterlog&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=neddstarkk_Waterlog)
+
+
 
 
