@@ -22,4 +22,8 @@ You can find the visual event storming and the consequent domain allocation and 
 
 The relations between the domains can be found [here](https://github.com/neddstarkk/Waterlog/blob/main/relational_diagram.svg)
 
+## 6. Metrics
+
+![Test workflow](https://github.com/github/docs/actions/workflows/android-release.yml/badge.svg)
+
 
