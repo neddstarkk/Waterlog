@@ -36,6 +36,19 @@ Creation of SonarCloud account and connecting to repository for metric badges:
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=neddstarkk_Waterlog&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=neddstarkk_Waterlog)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=neddstarkk_Waterlog&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=neddstarkk_Waterlog)
 
+## 7. Clean Code Development
 
+## 8. Build Management
 
-[![Quality Gate Status](http://localhost:9000/api/project_badges/measure?project=waterlog&metric=alert_status&token=sqb_73c9ce74a7c38e71188f735994855d22da401136)](http://localhost:9000/dashboard?id=waterlog)
+Adding Github Action Test exectuion on every push to verify appbundle build.
+
+-> [Github Actions](https://github.com/neddstarkk/Waterlog/tree/main/.github/workflows)
+
+-> [Workflow History](https://github.com/neddstarkk/Waterlog/actions)
+
+## 9. Unit Tests
+Writing unit tests to test the functionality and rendering of widgets
+
+Tests will be executed automatically with every push to respository -> with github actions (see 8.) -> [find tests here](https://github.com/neddstarkk/Waterlog/blob/main/waterlog/test/widget_test.dart)
+
+You can run tests manually with `flutter test` in the project root. 
