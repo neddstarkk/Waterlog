@@ -10,6 +10,7 @@ You can observe the commit history of the project [here](https://github.com/nedd
 You can find a [use-case diagram](https://github.com/neddstarkk/Waterlog/blob/main/UML/Goal-selection-use-case.png), an associated [activity diagram](https://github.com/neddstarkk/Waterlog/blob/main/UML/activity-diagram.png) and a [class diagram](https://github.com/neddstarkk/Waterlog/blob/main/UML/waterlog-class-diagram.svg) of the project.
 
 ## 3. Requirements Mapping
+
 You can find the requirements mapped in a notion page [here](https://slow-rambutan-c40.notion.site/Product-Requirement-Document-PRD-ae399c2790a04a7ba0ed13a0fe954ab2?pvs=4)
 
 ## 4. Analysis
@@ -37,4 +38,4 @@ Creation of SonarCloud account and connecting to repository for metric badges:
 
 
 
-
+[![Quality Gate Status](http://localhost:9000/api/project_badges/measure?project=waterlog&metric=alert_status&token=sqb_73c9ce74a7c38e71188f735994855d22da401136)](http://localhost:9000/dashboard?id=waterlog)
