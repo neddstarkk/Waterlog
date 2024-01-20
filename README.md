@@ -38,6 +38,10 @@ Creation of SonarCloud account and connecting to repository for metric badges:
 
 ## 7. Clean Code Development
 
+An explanation of what constitutes clean code in this project can be found [here](https://slow-rambutan-c40.notion.site/Clean-Code-Development-0f136b0e122546bc97fc03670ce68cef?pvs=4)
+
+You can also find my personal clean code cheatsheet for Flutter and Dart [here](https://slow-rambutan-c40.notion.site/Personal-Clean-Code-Cheatsheet-36349cc89b94412cbb83161ec54653d6?pvs=4)
+
 ## 8. Build Management
 
 Adding Github Action Test exectuion on every push to verify appbundle build.
