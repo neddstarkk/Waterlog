@@ -56,3 +56,7 @@ Writing unit tests to test the functionality and rendering of widgets
 Tests will be executed automatically with every push to respository -> with github actions (see 8.) -> [find tests here](https://github.com/neddstarkk/Waterlog/blob/main/waterlog/test/widget_test.dart)
 
 You can run tests manually with `flutter test` in the project root. 
+
+## 10. Favourite IDE
+
+I have been using Android Studio, which is built on top of Jetbrains' IDEA software specifically for android development. My personal favourite list of shortcuts can be found [here](https://slow-rambutan-c40.notion.site/Favourite-Shortcuts-of-IDE-c0b23e5cda26407cba2d7e89828266a1?pvs=4)
