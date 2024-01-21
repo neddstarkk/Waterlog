@@ -64,21 +64,19 @@ class NextButton extends StatelessWidget {
             int weight = int.parse(provider.fetchWeight.toString().substring(0, 3));
             var wakeUpTime = provider.fetchTime.toString();
             Genders? gender = provider.fetchGender;
-            // if (provider.fetchWeight.length < 4) {
-            //   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-            //       behavior: SnackBarBehavior.floating,
-            //       content: Text("Error: Weight needs to be a valid value")));
-            // } else if (provider.fetchHeight.length < 5) {
-            //   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-            //       behavior: SnackBarBehavior.floating,
-            //       content: Text("Error: Height cannot be empty")));
-            // } else if (provider.fetchTime.length < 3) {
-            //   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-            //       behavior: SnackBarBehavior.floating,
-            //       content: Text("Error: Please provide a valid wake-up time")));
-            // } else {
-            //   Navigator.push(context, CupertinoPageRoute(builder: (context) => const CalculationScreen()));
-            // }
+            if (provider.fetchWeight.length < 4) {
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                  behavior: SnackBarBehavior.floating,
+                  content: Text("Error: Weight needs to be a valid value")));
+            } else if (provider.fetchHeight.length < 5) {
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                  behavior: SnackBarBehavior.floating,
+                  content: Text("Error: Height cannot be empty")));
+            } else if (provider.fetchTime.length < 3) {
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                  behavior: SnackBarBehavior.floating,
+                  content: Text("Error: Please provide a valid wake-up time")));
+            }
             provider.updateRequiredWaterIntake(IntakeCalculator.hello(height, weight, wakeUpTime, gender).toString());
             print(provider.waterIntake);
             Timer(
