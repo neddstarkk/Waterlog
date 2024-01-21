@@ -13,6 +13,8 @@ You can find a [use-case diagram](https://github.com/neddstarkk/Waterlog/blob/ma
 
 You can find the requirements mapped in a notion page [here](https://slow-rambutan-c40.notion.site/Product-Requirement-Document-PRD-ae399c2790a04a7ba0ed13a0fe954ab2?pvs=4)
 
+Due to some restrictions of Jira itself, I cannot share the Jira board. However I can share the filter used by the project to enable the display of requirements mapped to Jira [here](https://nedheesh-hasija.atlassian.net/browse/WAT-1?filter=10000)
+
 ## 4. Analysis
 A) You can find my [checklist here](https://slow-rambutan-c40.notion.site/Part-A-My-own-checklist-39af2a74b6914f12b7318daea4843a9e?pvs=4)
 
