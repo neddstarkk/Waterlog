@@ -36,6 +36,27 @@ Creation of SonarCloud account and connecting to repository for metric badges:
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=neddstarkk_Waterlog&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=neddstarkk_Waterlog)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=neddstarkk_Waterlog&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=neddstarkk_Waterlog)
 
+## 7. Clean Code Development
 
+An explanation of what constitutes clean code in this project can be found [here](https://slow-rambutan-c40.notion.site/Clean-Code-Development-0f136b0e122546bc97fc03670ce68cef?pvs=4)
 
-[![Quality Gate Status](http://localhost:9000/api/project_badges/measure?project=waterlog&metric=alert_status&token=sqb_73c9ce74a7c38e71188f735994855d22da401136)](http://localhost:9000/dashboard?id=waterlog)
+You can also find my personal clean code cheatsheet for Flutter and Dart [here](https://slow-rambutan-c40.notion.site/Personal-Clean-Code-Cheatsheet-36349cc89b94412cbb83161ec54653d6?pvs=4)
+
+## 8. Build Management
+
+Adding Github Action Test exectuion on every push to verify appbundle build.
+
+-> [Github Actions](https://github.com/neddstarkk/Waterlog/tree/main/.github/workflows)
+
+-> [Workflow History](https://github.com/neddstarkk/Waterlog/actions)
+
+## 9. Unit Tests
+Writing unit tests to test the functionality and rendering of widgets
+
+Tests will be executed automatically with every push to respository -> with github actions (see 8.) -> [find tests here](https://github.com/neddstarkk/Waterlog/blob/main/waterlog/test/widget_test.dart)
+
+You can run tests manually with `flutter test` in the project root. 
+
+## 10. Favourite IDE
+
+I have been using Android Studio, which is built on top of Jetbrains' IDEA software specifically for android development. My personal favourite list of shortcuts can be found [here](https://slow-rambutan-c40.notion.site/Favourite-Shortcuts-of-IDE-c0b23e5cda26407cba2d7e89828266a1?pvs=4)
