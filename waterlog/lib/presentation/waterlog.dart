@@ -60,23 +60,32 @@ class NextButton extends StatelessWidget {
           onPressed: () async{
             // commented for easier development
             var provider = Provider.of<UserProvider>(context, listen: false);
-            int height = int.parse(provider.fetchHeight.toString().substring(0,3));
-            int weight = int.parse(provider.fetchWeight.toString().substring(0, 3));
-            var wakeUpTime = provider.fetchTime.toString();
-            Genders? gender = provider.fetchGender;
-            if (provider.fetchWeight.length < 4) {
-              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+            int height = 0;
+            int weight = 0;
+            var wakeUpTime;
+            Genders? gender = Genders.MALE;
+            try {
+              height = int.parse(provider.fetchHeight.toString().substring(0,3));
+              weight = int.parse(provider.fetchWeight.toString().substring(0, 3));
+              wakeUpTime = provider.fetchTime.toString();
+              gender = provider.fetchGender;
+            }
+            on Exception catch (e){
+              if (provider.fetchWeight.length < 4) {
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                   behavior: SnackBarBehavior.floating,
                   content: Text("Error: Weight needs to be a valid value")));
-            } else if (provider.fetchHeight.length < 5) {
-              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+              } else if (provider.fetchHeight.length < 5) {
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                   behavior: SnackBarBehavior.floating,
                   content: Text("Error: Height cannot be empty")));
-            } else if (provider.fetchTime.length < 3) {
-              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+              } else if (provider.fetchTime.length < 3) {
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                   behavior: SnackBarBehavior.floating,
                   content: Text("Error: Please provide a valid wake-up time")));
+              }
             }
+            
             provider.updateRequiredWaterIntake(IntakeCalculator.hello(height, weight, wakeUpTime, gender).toString());
             print(provider.waterIntake);
             Timer(

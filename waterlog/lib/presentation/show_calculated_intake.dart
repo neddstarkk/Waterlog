@@ -21,7 +21,7 @@ class _ShowCalculatedIntakeState extends State<ShowCalculatedIntake> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             mainAxisSize: MainAxisSize.max,
             children: [
-              Text("${widget.waterIntake}"),
+              Text("${widget.waterIntake} ml"),
               FloatingActionButton.extended(
                 onPressed: () {
                   Navigator.push(

@@ -44,7 +44,7 @@ class _WaterIntakeTrackerState extends State<WaterIntakeTracker> {
               ],
               annotations: [
                 GaugeAnnotation(
-                  widget: Text("$waterIntake ml", style: TextStyle(fontSize: 31, fontWeight: FontWeight.bold) ,)
+                  widget: Text("${waterIntake.round()} ml", style: TextStyle(fontSize: 31, fontWeight: FontWeight.bold) ,)
                 )
               ],
             ),
