@@ -13,6 +13,8 @@ You can find a [use-case diagram](https://github.com/neddstarkk/Waterlog/blob/ma
 
 You can find the requirements mapped in a notion page [here](https://slow-rambutan-c40.notion.site/Product-Requirement-Document-PRD-ae399c2790a04a7ba0ed13a0fe954ab2?pvs=4)
 
+Due to some restrictions of Jira itself, I cannot share the Jira board. However I can share the filter used by the project to enable the display of requirements mapped to Jira [here](https://nedheesh-hasija.atlassian.net/browse/WAT-1?filter=10000)
+
 ## 4. Analysis
 A) You can find my [checklist here](https://slow-rambutan-c40.notion.site/Part-A-My-own-checklist-39af2a74b6914f12b7318daea4843a9e?pvs=4)
 
@@ -60,3 +62,17 @@ You can run tests manually with `flutter test` in the project root.
 ## 10. Favourite IDE
 
 I have been using Android Studio, which is built on top of Jetbrains' IDEA software specifically for android development. My personal favourite list of shortcuts can be found [here](https://slow-rambutan-c40.notion.site/Favourite-Shortcuts-of-IDE-c0b23e5cda26407cba2d7e89828266a1?pvs=4)
+
+## 11. Functional Programming
+
+I have created a separate program in python under the folder functional_programming to demonstrate the functional programming principles in practice. This was necessary as the dart code was too convoluted to find specific examples. 
+
+-> [only final data structures](https://github.com/neddstarkk/Waterlog/blob/d3bb026010bdc5af37503a1925dbad2d2ce65c5d/functional_programming/functional.py#L16)
+
+-> [(mostly) side effect free functions](https://github.com/neddstarkk/Waterlog/blob/d3bb026010bdc5af37503a1925dbad2d2ce65c5d/functional_programming/functional.py#L1)
+
+-> [Use closures/anonymous functions](https://github.com/neddstarkk/Waterlog/blob/d3bb026010bdc5af37503a1925dbad2d2ce65c5d/functional_programming/functional.py#L42)
+
+-> [Higher order functions](https://github.com/neddstarkk/Waterlog/blob/d3bb026010bdc5af37503a1925dbad2d2ce65c5d/functional_programming/functional.py#L32)
+
+-> [Functions as parameters and return values](https://github.com/neddstarkk/Waterlog/blob/d3bb026010bdc5af37503a1925dbad2d2ce65c5d/functional_programming/functional.py#L32)
