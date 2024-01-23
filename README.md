@@ -2,6 +2,8 @@
 
 Waterlog is a moblie app that will remind you to drink water throughout the day. It is a promising software engineering project that has the potential to help people stay hydrated and improve their overall health. It will be built using Flutter and Dart.
 
+[Screen recording of the mobile app](https://github.com/neddstarkk/Waterlog/blob/main/waterlog%20screen%20record.mp4)
+
 ## 1. Usage of Git
 
 You can observe the commit history of the project [here](https://github.com/neddstarkk/Waterlog/commits/main)
@@ -46,7 +48,7 @@ You can also find my personal clean code cheatsheet for Flutter and Dart [here](
 
 ## 8. Build Management
 
-Adding Github Action Test exectuion on every push to verify appbundle build.
+Adding Github Action Test execution on every push to verify appbundle build.
 
 -> [Github Actions](https://github.com/neddstarkk/Waterlog/tree/main/.github/workflows)
 
